@@ -1,0 +1,17 @@
+version: "3.9"
+   
+services:
+  BinanceBot:
+    build:
+      context: cv_lab/
+      dockerfile: Dockerfile
+    image:  cvlab-img
+    volumes:
+      - type: bind
+        source: ./cv_lab/
+        target: /lab/
+      - type: bin
+    container_name: cvlab
+  
+
+    docker run -it --rm --env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --device="/dev/video0:/dev/video0"
